@@ -4,6 +4,7 @@
 # Import class and methods from implement file
 from connect_four import ConnectFour
 
+
 # Test for initializing the game grid and that it is empty of tokens
 def test_initialization():
     game = ConnectFour(rows=6, columns=7, win_length=4)
@@ -13,6 +14,7 @@ def test_initialization():
     assert game.current_player == 'R'
     assert game.grid == [[' ' for _ in range(7)] for _ in range(6)]
 
+
 # Test add token function by adding values.
 def test_add_token():
     game = ConnectFour(rows=6, cols=7, win_length=4)
@@ -21,3 +23,13 @@ def test_add_token():
     grid = game.get_grid()
     # Ensures token is bottom row
     assert grid[5][0] == 'R'
+
+
+# Test switch player method
+def test_alternate_players():
+    game = ConnectFour(6, 7)
+    assert game.get_current_player() == 'R'
+    game.add_token(0, 'R')
+    assert game.get_current_player() == 'Y'
+    game.add_token(1, 'Y')
+    assert game.get_current_player() == 'R'
