@@ -1,22 +1,6 @@
 # Import the methods from the connect_four file
-from connect_four import ConnectFour
+from connect_four import ConnectFour, configure_game
 
-
-
-def configure_game():
-    while True:
-        try:
-            rows = int(input("Enter number of rows: "))
-            cols = int(input("Enter number of columns: "))
-            win_length = int(input("Enter winning row length: "))
-
-            if min(rows, cols) >= win_length > 0:
-                return rows, cols, win_length
-            else:
-                print("Invalid winning row length. Please choose a length less than or equal to the minimum of rows "
-                      "and columns.")
-        except ValueError:
-            print('Invalid input. Please enter valid integers.')
 
 def main():
     # Configure the game
@@ -24,6 +8,7 @@ def main():
 
     # Initialize new game grid
     game = ConnectFour(rows, cols, win_length)
+
 
 def main():
     # Configure the game
@@ -38,7 +23,7 @@ def main():
         # Show grid
         game.show_grid()
         # Add token to the game grid.
-        # Try catch to check a valid interger is entered
+        # Try catch to check a valid values are entered
         try:
             col = int(input("Enter column to place token: "))
             # Check column is within the grid
@@ -60,6 +45,7 @@ def main():
             print("Invalid input. Please enter a valid integer for column index.")
     # Show final state of the grid
     game.show_grid()
+
 
 if __name__ == "__main__":
     main()
