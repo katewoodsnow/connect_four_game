@@ -1,3 +1,23 @@
+# Static method to configure the game grid and win length input by user
+def configure_game():
+    while True:
+        # Ensures correct input by user
+        try:
+            rows = int(input("Enter number of rows: "))
+            cols = int(input("Enter number of columns: "))
+            win_length = int(input("Enter winning row length: "))
+            # Check to see if token length to win is within grid boundary
+            if min(rows, cols) >= win_length > 0:
+                # return grid
+                return rows, cols, win_length
+            else:
+                print(
+                    "Invalid winning row length. Please choose a length less than or equal to the minimum of rows "
+                    "and columns.")
+        except ValueError:
+            print('Invalid input. Please enter valid integers.')
+
+
 class ConnectFour:
 
     # Initialise a new game grid
@@ -12,6 +32,7 @@ class ConnectFour:
     # Returns the value
     def get_grid(self):
         return self.grid
+
 
     # Show the current player to play, Red or Yellow.
     def get_current_player(self):
