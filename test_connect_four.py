@@ -47,4 +47,9 @@ def test_show_grid():
                           "\n"
                           "\n"
                           "RY")
+def test_winner_horizontal():
+    game = ConnectFour(rows=6, columns=7, win_length=4)
+    for col in range(4):
+        game.add_token(col, 'R')
+    assert game.check_winner() == 'R'
 
