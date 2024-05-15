@@ -40,3 +40,33 @@ class ConnectFour:
             print('|'.join(cell.center(3) if cell != ' ' else '   ' for cell in row))
             # Line to seperate cells
             print('-' * (self.columns * 3 - 1))
+
+    # check the winner. Iterate through the game grid and check
+    # for consecutive tokens in a row that equal win_length.
+    def check_winner(self):
+        # Check horizontally
+        for row in range(self.rows):
+            for col in range(self.columns - self.win_length + 1):
+                if all(self.grid[row][col + i] == self.grid[row][col] != ' ' for i in range(1, self.win_length)):
+                    return self.grid[row][col]
+
+        # Check vertically
+        for col in range(self.columns):
+            for row in range(self.rows - self.win_length + 1):
+                if all(self.grid[row + i][col] == self.grid[row][col] != ' ' for i in range(1, self.win_length)):
+                    return self.grid[row][col]
+
+        # Check diagonally (from bottom-left to top-right)
+        for row in range(self.rows - self.win_length + 1):
+            for col in range(self.columns - self.win_length + 1):
+                if all(self.grid[row + i][col + i] == self.grid[row][col] != ' ' for i in range(1, self.win_length)):
+                    return self.grid[row][col]
+
+        # Check diagonally (from bottom-right to top-left)
+        for row in range(self.win_length - 1, self.rows):
+            for col in range(self.columns - self.win_length + 1):
+                if all(self.grid[row - i][col + i] == self.grid[row][col] != ' ' for i in range(1, self.win_length)):
+                    return self.grid[row][col]
+
+        # If no winner is found, return None
+        return None
