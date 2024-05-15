@@ -53,3 +53,10 @@ def test_winner_horizontal():
         game.add_token(col, 'R')
     assert game.check_winner() == 'R'
 
+if __name__ == "__main__":
+    test_initialization()
+    test_add_token()
+    test_show_grid()
+    test_alternate_players()
+    test_winner_horizontal()
+    print("All tests passed.")
