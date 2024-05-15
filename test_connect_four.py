@@ -9,4 +9,3 @@ def test_initialization():
     assert game.win_length == 4
     assert game.current_player == 'R'
     assert game.grid == [[' ' for _ in range(7)] for _ in range(6)]
-
