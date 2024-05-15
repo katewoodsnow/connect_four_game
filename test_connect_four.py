@@ -33,3 +33,18 @@ def test_alternate_players():
     assert game.get_current_player() == 'Y'
     game.add_token(1, 'Y')
     assert game.get_current_player() == 'R'
+
+# Checks if the show_grid method returns the expected string representation
+# of the grid.
+def test_show_grid():
+    game = ConnectFour(6, 7)
+    game.add_token(0, 'R')
+    game.add_token(1, 'Y')
+    grid_state = game.show_grid()
+    assert grid_state == ("\n"
+                          " \n"
+                          "\n"
+                          "\n"
+                          "\n"
+                          "RY")
+
