@@ -33,3 +33,10 @@ class ConnectFour:
     # Switches the player either red or yellow
     def switch_players(self):
         self.current_player = 'Y' if self.current_player == 'R' else 'R'
+
+    # Return the string representation of the grid to show the state.
+    def show_grid(self):
+        for row in self.grid:
+            print('|'.join(cell.center(3) if cell != ' ' else '   ' for cell in row))
+            # Line to seperate cells
+            print('-' * (self.columns * 3 - 1))
