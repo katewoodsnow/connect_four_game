@@ -1,3 +1,7 @@
+# Import the methods from the connect_four file
+from connect_four import ConnectFour
+
+
 
 def configure_game():
     while True:
@@ -13,3 +17,10 @@ def configure_game():
                       "and columns.")
         except ValueError:
             print('Invalid input. Please enter valid integers.')
+
+def main():
+    # Configure the game
+    rows, cols, win_length = configure_game()
+
+    # Initialize new game grid
+    game = ConnectFour(rows, cols, win_length)
