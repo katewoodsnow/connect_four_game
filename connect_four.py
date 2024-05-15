@@ -13,6 +13,10 @@ class ConnectFour:
     def get_grid(self):
         return self.grid
 
+    # Show the current player to play, Red or Yellow.
+    def get_current_player(self):
+        return self.current_player
+
     # Add a token to the game grid
     def add_token(self, column, token):
         # Check to see if the column entered by the player is within the
