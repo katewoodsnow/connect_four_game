@@ -9,14 +9,6 @@ def main():
     # Initialize new game grid
     game = ConnectFour(rows, cols, win_length)
 
-
-def main():
-    # Configure the game
-    rows, cols, win_length = configure_game()
-
-    # Initialize new game grid
-    game = ConnectFour(rows, cols, win_length)
-
     while True:
         # Show player to play
         print(f"Current player: {game.get_current_player()}")
